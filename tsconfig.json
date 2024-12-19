@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"target": "ES2022",
+		"types": ["node"],
+		"skipLibCheck": true,
+		"strict": true
+	},
+	"include": ["./src/**/*.ts"],
+	"exclude": ["node_modules", "dist/", "test/"],
+	"ts-node": {
+		"esm": true,
+		"experimentalSpecifierResolution": "node",
+		"files": true,
+		"transpileOnly": true
+	}
+}
