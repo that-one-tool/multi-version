@@ -6,9 +6,10 @@
 
 </div>
 
-<p style="text-align: center;">
+<div style="text-align: center; display: flex-box; justify-content: center;">
+	<div>
 	<b>Handle versioning easily inside your multi-packages monorepo.</b>
-	<br/>
+	</div>
 	<br/>
 	<a href="https://github.com/that-one-tool/multi-version">
 		<img src="https://img.shields.io/github/v/release/that-one-tool/multi-version" alt="Release" />
@@ -32,7 +33,7 @@
 	<span>
 		<img src="https://img.shields.io/badge/coverage-93%25-success" alt="Coverage" />
 	</span>
-</p>
+</div>
 
 ## Usage
 
