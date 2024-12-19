@@ -6,7 +6,7 @@ export default tseslint.config(
 		files: ['src/**/*.{js,mjs,cjs,ts}', 'test/**/*.{js,mjs,cjs,ts}'],
 	},
 	eslint.configs.recommended,
-	tseslint.configs.recommendedTypeChecked,
+	tseslint.configs.recommended,
 	tseslint.configs.stylisticTypeChecked,
 	{
 		files: ['**/*.ts'],
@@ -21,13 +21,20 @@ export default tseslint.config(
 		ignores: ['dist/**/*', './node_modules/**/*', 'eslint.config.mjs'],
 	},
 	{
-		overrides: [
-			{
-				files: ['test/**/*'],
-				env: {
-					jest: true,
+		files: ['**/*.spec.ts'],
+		rules: {
+			'@typescript-eslint/no-floating-promises': [
+				'error',
+				{
+					allowForKnownSafeCalls: [
+						{
+							from: 'package',
+							name: ['it', 'describe'],
+							package: 'node:test',
+						},
+					],
 				},
-			},
-		],
+			],
+		},
 	},
 );

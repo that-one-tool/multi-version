@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/dot-notation, @typescript-eslint/no-floating-promises */
-
 import * as assert from 'node:assert';
 import { describe, it, mock } from 'node:test';
-import { LogLevel, LogStatus } from '../../../src/types';
+import { LogLevel, LogStatus, Options } from '../../../src/types';
 import * as Logger from '../../../src/utils/logger.js';
 
 describe('Logger', () => {
@@ -174,7 +172,7 @@ describe('Logger', () => {
 	});
 
 	it('getLogLevel should return the log level - verbose', () => {
-		const options = { verbose: true, debug: false, quiet: false };
+		const options: Options = { verbose: true, debug: false, quiet: false, baseBranch: 'main', syncedMode: false };
 
 		const logLevel = Logger.getLogLevel(options);
 
@@ -182,7 +180,7 @@ describe('Logger', () => {
 	});
 
 	it('getLogLevel should return the log level - debug', () => {
-		const options = { verbose: false, debug: true, quiet: false };
+		const options: Options = { verbose: false, debug: true, quiet: false, baseBranch: 'main', syncedMode: false };
 
 		const logLevel = Logger.getLogLevel(options);
 
@@ -190,7 +188,7 @@ describe('Logger', () => {
 	});
 
 	it('getLogLevel should return the log level - quiet', () => {
-		const options = { verbose: false, debug: false, quiet: true };
+		const options: Options = { verbose: false, debug: false, quiet: true, baseBranch: 'main', syncedMode: false };
 
 		const logLevel = Logger.getLogLevel(options);
 
@@ -198,7 +196,7 @@ describe('Logger', () => {
 	});
 
 	it('getLogLevel should return the log level - info', () => {
-		const options = { verbose: false, debug: false, quiet: false };
+		const options: Options = { verbose: false, debug: false, quiet: false, baseBranch: 'main', syncedMode: false };
 
 		const logLevel = Logger.getLogLevel(options);
 

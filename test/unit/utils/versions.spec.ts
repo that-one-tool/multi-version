@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
-
 import * as assert from 'node:assert';
 import { describe, it, mock } from 'node:test';
+import { SemVer } from 'semver';
 import { LogLevel } from '../../../src/types';
 import { InvalidVersionError } from '../../../src/utils/errors';
 import { incrementVersionForReleaseType } from '../../../src/utils/versions';
-import { SemVer } from 'semver';
 
 globalThis.LOG_LEVEL = LogLevel.Quiet;
 

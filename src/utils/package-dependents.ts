@@ -1,4 +1,3 @@
-import { Package } from '@manypkg/get-packages';
 import { LogStatus, MarkedPackage } from '../types.js';
 import * as Logger from '../utils/logger.js';
 

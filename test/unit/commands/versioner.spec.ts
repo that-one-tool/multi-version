@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/dot-notation, @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/dot-notation */
 
 import * as assert from 'node:assert';
 import { describe, it } from 'node:test';

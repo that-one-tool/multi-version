@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/dot-notation, @typescript-eslint/no-floating-promises */
-
 import * as assert from 'node:assert';
 import * as fs from 'node:fs';
 import { describe, it, mock } from 'node:test';

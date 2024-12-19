@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
-
 import * as assert from 'node:assert';
 import { describe, it } from 'node:test';
 import { LogLevel, MarkedPackage } from '../../../src/types';
