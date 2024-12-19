@@ -1,6 +1,6 @@
 # Multi-Version
 
-<div style="text-align: center;">
+<div style="text-align: center; display: flex; justify-content: center;">
 
 ![](multi-version-logo.png 'multi-version logo')
 
@@ -12,26 +12,26 @@
 	<br/>
 	<a href="https://github.com/that-one-tool/multi-version">
 		<img src="https://img.shields.io/github/v/release/that-one-tool/multi-version" alt="Release" />
-	</a>&nbsp;
+	</a>
 	<a href="https://www.npmjs.com/multi-version">
     	<img src="https://img.shields.io/npm/v/multi-version.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="multi-version on npm" />
-	</a>&nbsp;
+	</a>
 	<span>
 		<img src="https://img.shields.io/bundlephobia/min/multi-version" alt="Package size" />
-	</span>&nbsp;
+	</span>
+	<br/>
 	<a href="https://github.com/that-one-tool/multi-version/blob/master/LICENSE">
 		<img src="https://img.shields.io/github/license/that-one-tool/multi-version" alt="License" />
-	</a>&nbsp;
+	</a>
 	<a href="https://github.com/that-one-tool/multi-version/issues">
 		<img src="https://img.shields.io/github/issues/that-one-tool/multi-version" alt="Issues" />
-	</a>&nbsp;
-	<br/>
+	</a>
 	<span>
-		<img src="https://github.com/that-one-tool/multi-version/actions/workflows/nodejs_ci_master.yml/badge.svg" alt="Node.js CI" />
-	</span>&nbsp;
+		<img src="https://github.com/that-one-tool/multi-version/actions/workflows/nodejs_ci_main.yml/badge.svg" alt="Node.js CI" />
+	</span>
 	<span>
 		<img src="https://img.shields.io/badge/coverage-93%25-success" alt="Coverage" />
-	</span>&nbsp;
+	</span>
 </p>
 
 ## Usage
