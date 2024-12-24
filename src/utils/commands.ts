@@ -9,6 +9,7 @@ export async function execAsync(command: string): Promise<string> {
 	let stderr;
 
 	try {
+		Logger.verbose(LogStatus.None, `Executing command ${command}`);
 		const result = await promisify(exec)(command, { maxBuffer: 1024 * 1024 * 10 });
 		stdout = result.stdout;
 		stderr = result.stderr;

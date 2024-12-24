@@ -1,7 +1,7 @@
 import { execAsync } from './commands.js';
 
 export async function getChangedFiles(commitShortSha: string): Promise<string[]> {
-	const result = await execAsync(`git diff-tree --no-commit-id --name-only ${commitShortSha} -r`);
+	const result = await execAsync(`git diff-tree -r --no-commit-id --name-only ${commitShortSha}`);
 	return result.split('\n');
 }
 
