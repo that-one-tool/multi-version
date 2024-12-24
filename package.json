@@ -1,6 +1,6 @@
 {
 	"name": "@that-one-tool/multi-version",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "The simple and powerful tool to handle versioning inside your multi-packages monorepo",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
@@ -23,12 +23,16 @@
 		"multipackage",
 		"package"
 	],
-	"author": "Jason Mejane",
-	"license": "MIT",
+	"author": "That one tool",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/that-one-tool/multi-version.git"
+	},
+	"license": "GPL-3.0-only",
 	"dependencies": {
 		"@conventional-changelog/git-client": "1.0.1",
 		"@manypkg/get-packages": "2.2.2",
-		"chalk": "5.4.0",
+		"chalk": "5.4.1",
 		"commander": "12.1.0",
 		"conventional-changelog": "6.0.0",
 		"conventional-changelog-angular": "8.0.0",
@@ -47,6 +51,6 @@
 		"sinon": "^19.0.2",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.7.2",
-		"typescript-eslint": "^8.18.1"
+		"typescript-eslint": "^8.18.2"
 	}
 }
