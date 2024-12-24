@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command, Option } from 'commander';
 import { exit } from 'node:process';
 import { Versioner } from './commands/versioner.js';
