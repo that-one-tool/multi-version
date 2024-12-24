@@ -39,7 +39,7 @@
 In terminal, run:
 
 ```sh
-npx @that-one-tool/multi-version validate
+npx -y -p @that-one-tool/multi-version@latest multi-version validate
 ```
 
 It will go through all packages in the repo, will compare the versions in the current branch with the versions in the base branch specified in the config.

@@ -30,8 +30,8 @@ program
 		globalThis.LOG_LEVEL = Logger.getLogLevel(options);
 
 		const config: Config = {
-			baseBranch: options.baseBranch,
-			syncedMode: options.syncedMode,
+			baseBranch: options.baseBranch ?? 'main',
+			syncedMode: options.syncedMode ?? false,
 		};
 
 		try {
@@ -52,8 +52,8 @@ program
 		globalThis.LOG_LEVEL = Logger.getLogLevel(options);
 
 		const config: Config = {
-			baseBranch: options.baseBranch,
-			syncedMode: options.syncedMode,
+			baseBranch: options.baseBranch ?? 'main',
+			syncedMode: options.syncedMode ?? false,
 		};
 
 		try {
