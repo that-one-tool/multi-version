@@ -60,3 +60,11 @@ Here are the options you can pass when executing the command (all are optional):
 
 - If all versions are valid in regards to the release type from the conventional commit message, the program will exit successfully with code 0.
 - If at least one version is not valid, the program will fail and exit with code 1.
+
+## Contribute
+
+Please feel free to suggest improvements, features or bug fix through Git issues. Pull Requests for that are also more than welcome.
+
+## Keywords
+
+`version` `monorepo` `multipackage` `package` `versioning` `validation` `bump` `ci` `cd` `automation`

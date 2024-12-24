@@ -21,7 +21,13 @@
 		"version",
 		"monorepo",
 		"multipackage",
-		"package"
+		"package",
+		"versioning",
+		"validation",
+		"bump",
+		"ci",
+		"cd",
+		"automation"
 	],
 	"author": "That one tool",
 	"repository": {
