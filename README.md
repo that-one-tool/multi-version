@@ -14,16 +14,13 @@
 	<a href="https://github.com/that-one-tool/multi-version">
 		<img src="https://img.shields.io/github/v/release/that-one-tool/multi-version" alt="Release" />
 	</a>
-	<a href="https://www.npmjs.com/multi-version">
+	<a href="https://www.npmjs.com/package/@that-one-tool/multi-version">
     	<img src="https://img.shields.io/npm/v/multi-version.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="multi-version on npm" />
 	</a>
-	<span>
-		<img src="https://img.shields.io/bundlephobia/min/multi-version" alt="Package size" />
-	</span>
-	<br/>
 	<a href="https://github.com/that-one-tool/multi-version/blob/master/LICENSE">
 		<img src="https://img.shields.io/github/license/that-one-tool/multi-version" alt="License" />
 	</a>
+	<br/>
 	<a href="https://github.com/that-one-tool/multi-version/issues">
 		<img src="https://img.shields.io/github/issues/that-one-tool/multi-version" alt="Issues" />
 	</a>
