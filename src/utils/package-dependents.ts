@@ -1,5 +1,5 @@
 import { LogStatus, MarkedPackage } from '../types.js';
-import * as Logger from '../utils/logger.js';
+import * as Logger from './logger.js';
 
 /**
  * Get the flatten dependent table of packages

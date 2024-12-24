@@ -1,6 +1,8 @@
 import { exec } from 'node:child_process';
 import { promisify } from 'node:util';
 import { MultiVersionError } from './errors.js';
+import * as Logger from './logger.js';
+import { LogStatus } from '../types.js';
 
 export async function execAsync(command: string): Promise<string> {
 	let stdout;
@@ -11,11 +13,13 @@ export async function execAsync(command: string): Promise<string> {
 		stdout = result.stdout;
 		stderr = result.stderr;
 	} catch (error) {
+		Logger.error(LogStatus.Error, `Failed to execute command ${command}: ${error}`);
 		throw new MultiVersionError(`Error while executing the command:\n==> ${command}`, { cause: error });
 	}
 
 	if (stderr) {
-		throw new MultiVersionError(stderr, { cause: new MultiVersionError(`Error while executing the command:\n==> ${command}`) });
+		Logger.error(LogStatus.Error, `Command ${command} failed: ${stderr}`);
+		throw new MultiVersionError(stderr, { cause: new MultiVersionError(`Error after executing the command:\n==> ${command}`) });
 	}
 
 	return stdout;
