@@ -11,8 +11,8 @@ export async function execAsync(command: string): Promise<string> {
 	try {
 		Logger.verbose(LogStatus.None, `Executing command ${command}`);
 		const result = await promisify(exec)(command, { maxBuffer: 1024 * 1024 * 10 });
-		stdout = result.stdout;
-		stderr = result.stderr;
+		stdout = result.stdout.trim();
+		stderr = result.stderr.trim();
 	} catch (error) {
 		Logger.error(LogStatus.Error, `Failed to execute command ${command}: ${error}`);
 		throw new MultiVersionError(`Error while executing the command:\n==> ${command}`, { cause: error });

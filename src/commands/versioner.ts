@@ -29,7 +29,7 @@ export class Versioner {
 		Logger.info(LogStatus.Important, `Release type: ${this.releaseType}`);
 
 		const branchList = await getBranchList();
-		Logger.debug(LogStatus.None, `List branches available :\n${branchList}`);
+		Logger.debug(LogStatus.None, `Branches available :\n${branchList.trim()}`);
 	}
 
 	async bumpVersions(): Promise<void> {

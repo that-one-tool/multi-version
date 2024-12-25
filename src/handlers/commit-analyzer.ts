@@ -80,6 +80,7 @@ export class CommitAnalyzer {
 	}
 
 	private async setCommitMessage(): Promise<void> {
+		Logger.debug(LogStatus.None, 'Getting current commit message...');
 		const commitMessageRaw = await getCurrentCommitMessage();
 		this.commitMessage = commitMessageRaw.trim();
 		Logger.debug(LogStatus.None, `Commit message: ${this.commitMessage}`);
@@ -90,7 +91,9 @@ export class CommitAnalyzer {
 	}
 
 	private async setCommitShortSha(): Promise<void> {
+		Logger.debug(LogStatus.None, 'Setting commit short sha...');
 		const commitShortShaRaw = await getCurrentCommitShortSha();
 		this.commitShortSha = commitShortShaRaw.trim();
+		Logger.debug(LogStatus.None, `Commit short sha: ${this.commitShortSha}`);
 	}
 }
