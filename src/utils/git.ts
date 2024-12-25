@@ -4,8 +4,8 @@ export async function checkoutBranch(branchName: string): Promise<void> {
 	await execAsync(`git checkout ${branchName}`);
 }
 
-export async function fetchOrigin(branchName?: string): Promise<void> {
-	await execAsync(`git fetch origin${branchName ? ' ' + branchName : ''}`);
+export async function fetchOrigin(): Promise<void> {
+	await execAsync('git fetch origin');
 }
 
 export async function getChangedFiles(commitShortSha: string): Promise<string[]> {
