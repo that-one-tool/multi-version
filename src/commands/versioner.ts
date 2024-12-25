@@ -4,7 +4,7 @@ import { ReleaseType } from 'semver';
 import { CommitAnalyzer } from '../handlers/commit-analyzer.js';
 import { Config, LogStatus, MarkedPackage } from '../types.js';
 import { InvalidConfigError, InvalidVersionBumpError } from '../utils/errors.js';
-import { checkoutBranch, fetchOrigin, pullBranch } from '../utils/git.js';
+import { checkoutBranch, pullBranch } from '../utils/git.js';
 import * as Logger from '../utils/logger.js';
 import { getFlattenDependentTable } from '../utils/package-dependents.js';
 import { incrementVersionForReleaseType } from '../utils/versions.js';
