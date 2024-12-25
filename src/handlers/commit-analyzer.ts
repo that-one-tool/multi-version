@@ -25,16 +25,17 @@ export class CommitAnalyzer {
 	/**
 	 * Get changed files paths from the commit
 	 *
+	 * @param {string} baseBranch The base branch to compare the commit with
 	 * @returns {string[]} The list of changed files paths
 	 */
-	async getChangedFilesPaths(): Promise<string[]> {
+	async getChangedFilesPaths(baseBranch: string): Promise<string[]> {
 		Logger.debug(LogStatus.None, 'Getting changed files from commit...');
 
 		if (this.commitShortSha === null) {
 			throw new InvalidCommitError('Commit hash is invalid');
 		}
 
-		const changedFiles = await getChangedFiles(this.commitShortSha);
+		const changedFiles = await getChangedFiles(this.commitShortSha, baseBranch);
 		const result: string[] = [];
 
 		for (const changedFile of changedFiles) {

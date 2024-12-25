@@ -4,7 +4,7 @@ import { ReleaseType } from 'semver';
 import { CommitAnalyzer } from '../handlers/commit-analyzer.js';
 import { Config, LogStatus, MarkedPackage } from '../types.js';
 import { InvalidConfigError, InvalidVersionBumpError } from '../utils/errors.js';
-import { checkoutBranch, pullBranch } from '../utils/git.js';
+import { checkoutBranch, fetchOrigin, getBranchList, pullBranch } from '../utils/git.js';
 import * as Logger from '../utils/logger.js';
 import { getFlattenDependentTable } from '../utils/package-dependents.js';
 import { incrementVersionForReleaseType } from '../utils/versions.js';
@@ -27,6 +27,9 @@ export class Versioner {
 
 		this.releaseType = await this.commitAnalyzer.getReleaseType();
 		Logger.info(LogStatus.Important, `Release type: ${this.releaseType}`);
+
+		const branchList = await getBranchList();
+		Logger.debug(LogStatus.None, `List branches available :\n${branchList}`);
 	}
 
 	async bumpVersions(): Promise<void> {
@@ -64,7 +67,7 @@ export class Versioner {
 			};
 		}
 
-		const changedFilePaths = await this.commitAnalyzer.getChangedFilesPaths();
+		const changedFilePaths = await this.commitAnalyzer.getChangedFilesPaths(this.config.baseBranch);
 		this.changedPackageNames = this.getChangedPackageNames(changedFilePaths);
 
 		if (this.config?.syncedMode) {
@@ -179,6 +182,7 @@ export class Versioner {
 
 		Logger.debug(LogStatus.None, `Pulling base branch ${this.config.baseBranch}...`);
 
+		await fetchOrigin();
 		await checkoutBranch(this.config.baseBranch);
 		await pullBranch(this.config.baseBranch);
 
