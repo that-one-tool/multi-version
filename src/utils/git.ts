@@ -1,5 +1,9 @@
 import { execAsync } from './commands.js';
 
+export async function checkoutBranch(branchName: string): Promise<void> {
+	await execAsync(`git checkout ${branchName}`);
+}
+
 export async function getChangedFiles(commitShortSha: string): Promise<string[]> {
 	const result = await execAsync(`git diff-tree -r --no-commit-id --name-only ${commitShortSha}`);
 	return result.split('\n');
@@ -17,6 +21,7 @@ export async function getCurrentCommitShortSha(): Promise<string> {
 	return await execAsync('git rev-parse --short HEAD');
 }
 
-export async function pullBranch(branch: string) {
-	await execAsync(`git pull ${branch.includes('origin') ? branch : 'origin/' + branch}`);
+export async function pullBranch(branch: string): Promise<void> {
+	await execAsync(`git fetch`);
+	await execAsync(`git pull origin ${branch.replace('origin/', '')}`);
 }
