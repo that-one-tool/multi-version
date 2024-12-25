@@ -1,8 +1,7 @@
 import { execAsync } from './commands.js';
 
 export async function checkoutBranch(branchName: string): Promise<void> {
-	const branch = branchName.replace('origin/', '');
-	await execAsync(`git checkout -b "tmp-${branch}" --track origin/${branch}`);
+	await execAsync(`git checkout ${branchName.replace('origin/', '')}`);
 }
 
 export async function fetchOrigin(): Promise<void> {
