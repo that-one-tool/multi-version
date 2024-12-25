@@ -179,7 +179,6 @@ export class Versioner {
 
 		Logger.debug(LogStatus.None, `Pulling base branch ${this.config.baseBranch}...`);
 
-		await fetchOrigin();
 		await checkoutBranch(this.config.baseBranch);
 		await pullBranch(this.config.baseBranch);
 
