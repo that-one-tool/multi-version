@@ -20,20 +20,6 @@ export class Versioner {
 		this.commitAnalyzer = new CommitAnalyzer();
 	}
 
-	async initialize(): Promise<void> {
-		Logger.debug(LogStatus.None, `Config loaded: ${JSON.stringify(this.config)}`);
-
-		await fetchOrigin();
-
-		await this.commitAnalyzer.loadCommit();
-
-		this.releaseType = await this.commitAnalyzer.getReleaseType();
-		Logger.info(LogStatus.Important, `Release type: ${this.releaseType}`);
-
-		const branchList = await getBranchList();
-		Logger.debug(LogStatus.None, `Branches available :\n${branchList.trim()}`);
-	}
-
 	async bumpVersions(): Promise<void> {
 		await this.initialize();
 
@@ -53,6 +39,20 @@ export class Versioner {
 			const originalVersion = originalPackages.find((_pkg) => _pkg.packageJson.name === pkgName)?.packageJson.version;
 			this.checkPackageVersioning(pkgName, markedPackage.shouldBeUpdated, originalVersion);
 		}
+	}
+
+	private async initialize(): Promise<void> {
+		Logger.debug(LogStatus.None, `Config loaded: ${JSON.stringify(this.config)}`);
+
+		await this.tryFetchOrigin();
+
+		await this.commitAnalyzer.loadCommit();
+
+		this.releaseType = await this.commitAnalyzer.getReleaseType();
+		Logger.info(LogStatus.Important, `Release type: ${this.releaseType}`);
+
+		const branchList = await getBranchList();
+		Logger.debug(LogStatus.None, `Branches available :\n${branchList.trim()}`);
 	}
 
 	private async findChangedPackagesAndMarkUpdateStatus(): Promise<void> {
@@ -206,5 +206,18 @@ export class Versioner {
 		}
 
 		return cleanPath;
+	}
+
+	private async tryFetchOrigin(): Promise<void> {
+		Logger.debug(LogStatus.None, 'Fetching origin...');
+
+		try {
+			await fetchOrigin();
+		} catch (error) {
+			Logger.warn(LogStatus.Error, `Failed to fetch origin: ${error}`);
+			return;
+		}
+
+		Logger.debug(LogStatus.None, 'Origin fetched');
 	}
 }

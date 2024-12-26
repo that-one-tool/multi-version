@@ -252,4 +252,21 @@ describe('Versioner', () => {
 			assert.ok(true);
 		});
 	});
+
+	describe('makeCleanPackagePath', () => {
+		it('should return the clean package path when starting with ./', () => {
+			const result = Versioner['makeCleanPackagePath']('./packages/app');
+			assert.strictEqual(result, 'packages/app');
+		});
+
+		it('should return the clean package path when starting with /', () => {
+			const result = Versioner['makeCleanPackagePath']('/packages/app');
+			assert.strictEqual(result, 'packages/app');
+		});
+
+		it('should return the clean package path when ending with /', () => {
+			const result = Versioner['makeCleanPackagePath']('packages/app/');
+			assert.strictEqual(result, 'packages/app');
+		});
+	});
 });
