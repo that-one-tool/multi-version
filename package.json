@@ -1,6 +1,6 @@
 {
 	"name": "@that-one-tool/multi-version",
-	"version": "0.1.12",
+	"version": "0.1.13",
 	"description": "The simple and powerful tool to handle versioning inside your multi-packages monorepo",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",

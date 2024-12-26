@@ -23,6 +23,8 @@ export class Versioner {
 	async initialize(): Promise<void> {
 		Logger.debug(LogStatus.None, `Config loaded: ${JSON.stringify(this.config)}`);
 
+		await fetchOrigin();
+
 		await this.commitAnalyzer.loadCommit();
 
 		this.releaseType = await this.commitAnalyzer.getReleaseType();
@@ -182,7 +184,6 @@ export class Versioner {
 
 		Logger.debug(LogStatus.None, `Pulling base branch ${this.config.baseBranch}...`);
 
-		await fetchOrigin();
 		await checkoutBranch(this.config.baseBranch);
 		await pullBranch(this.config.baseBranch);
 

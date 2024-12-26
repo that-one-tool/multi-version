@@ -26,7 +26,6 @@ program
 	.action(async (options: Options) => {
 		// @ts-expect-error - Assign value to global variable LOG_LEVEL
 		globalThis.LOG_LEVEL = Logger.getLogLevel(options);
-		Logger.info(LogStatus.None, `LOG_LEVEL set to: ${LOG_LEVEL}`);
 		Logger.debug(LogStatus.None, `Options passed: ${JSON.stringify(options)}`);
 
 		Logger.info(LogStatus.None, 'Bumping packages versions...');
@@ -57,7 +56,6 @@ program
 	.action(async (options: Options) => {
 		// @ts-expect-error - Assign value to global variable LOG_LEVEL
 		globalThis.LOG_LEVEL = Logger.getLogLevel(options);
-		Logger.info(LogStatus.None, `LOG_LEVEL set to: ${LOG_LEVEL}`);
 		Logger.debug(LogStatus.None, `Options passed: ${JSON.stringify(options)}`);
 
 		Logger.info(LogStatus.None, 'Validating packages versions...');
